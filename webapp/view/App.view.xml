@@ -3,6 +3,7 @@
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true">
+    <Shell>
     <App>
         <pages>
             <Page
@@ -25,4 +26,5 @@
             </Page>
         </pages>
     </App>
+    </Shell>
 </mvc:View>
