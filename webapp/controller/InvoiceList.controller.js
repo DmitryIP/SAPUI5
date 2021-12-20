@@ -19,14 +19,17 @@ sap.ui.define([
 			// build filter array
 			var aFilter = [];
 			var sQuery = oEvent.getParameter("query");
-			if (sQuery) {
-				aFilter.push(new Filter("ProductName", FilterOperator.Contains, sQuery));
-				
-			}
 			// filter binding
 			var oList = this.byId("invoiceList");
 			var oBinding = oList.getBinding("items");
-			oBinding.filter(aFilter);
+			if (sQuery) {
+				aFilter.push(new Filter("ProductName", FilterOperator.Contains, sQuery));
+				aFilter.push(new Filter("ShipperName", FilterOperator.Contains, sQuery));
+				oBinding.filter(new Filter(aFilter), sap.ui.model.FilterType.Application);
+			}else{
+				oBinding.filter(aFilter);
+			}
+		
 		}
 
 	});
