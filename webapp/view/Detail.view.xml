@@ -1,9 +1,18 @@
 <mvc:View
+    controllerName="sap.ui.demo.walkthrough.controller.Detail"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc">
     <Page
         title="{i18n>detailPageTitle}">
         <ObjectHeader
-            title="Invoice"/>
+            intro="{invoice>ShipperName}"
+            title="{invoice>Quantity} x {invoice>ProductName}"
+            number="{invoice>ExtendedPrice}"
+            numberUnit="{detail>/currency}"
+            >
+            <ObjectAttribute
+                text="Shipped date: {invoice>ShippedDate}"
+                />
+        </ObjectHeader>
     </Page>
 </mvc:View>
